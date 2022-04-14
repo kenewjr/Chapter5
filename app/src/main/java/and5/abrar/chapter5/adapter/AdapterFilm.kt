@@ -25,20 +25,15 @@ class AdapterFilm(private  val listdatafilm : List<GetAllFilmResponseItem>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        this.let {
             Glide.with(holder.itemView.context)
                 .load(listdatafilm[position].image)
                 .into(holder.itemView.gambarFilm)
-        }
         holder.itemView.judulFilm.text = listdatafilm[position].name
         holder.itemView.tanggalFilm.text = listdatafilm[position].date
         holder.itemView.sutradara.text = listdatafilm[position].director
         holder.itemView.cardfilm.setOnClickListener {
             onclik(listdatafilm[position])
         }
-
-
     }
 
     override fun getItemCount(): Int {

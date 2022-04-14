@@ -10,7 +10,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Chapter5">
+        android:theme="@style/Theme.Chapter5"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".actvty.UpdateUserActvty"
+            android:exported="false" />
+        <activity
+            android:name=".actvty.DetailUser"
+            android:exported="false" />
+        <activity
+            android:name=".actvty.AddUserActvty"
+            android:exported="false" />
+        <activity
+            android:name=".actvty.UpdateFilmActvty"
+            android:exported="false" />
         <activity
             android:name=".actvty.AddFilmActvty"
             android:exported="false" />
