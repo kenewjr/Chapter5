@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Chapter5"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".minggudua.VmodelLiveData"
+            android:exported="false" />
+        <activity
+            android:name=".minggudua.UsingVm"
+            android:exported="false" />
+        <activity
+            android:name=".minggudua.WithoutVm"
+            android:exported="true" />
+        <activity
+            android:name=".minggudua.MainActivity2"
+            android:exported="true" />
+        <activity
             android:name=".actvty.UpdateUserActvty"
             android:exported="false" />
         <activity

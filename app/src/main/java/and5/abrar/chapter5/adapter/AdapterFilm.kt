@@ -12,10 +12,13 @@ import kotlinx.android.synthetic.main.item_film.view.*
 
 
 
-class AdapterFilm(private  val listdatafilm : List<GetAllFilmResponseItem>,
-                  private var onclik :(GetAllFilmResponseItem)->Unit)
+class AdapterFilm(private var onclik :(GetAllFilmResponseItem)->Unit)
     :RecyclerView.Adapter<AdapterFilm.ViewHolder>() {
 
+    private var listdatafilm : List<GetAllFilmResponseItem>? = null
+    fun setDataFilm(film : List<GetAllFilmResponseItem>){
+        this.listdatafilm = film
+    }
     class ViewHolder(itemView : View):RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,17 +29,21 @@ class AdapterFilm(private  val listdatafilm : List<GetAllFilmResponseItem>,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             Glide.with(holder.itemView.context)
-                .load(listdatafilm[position].image)
+                .load(listdatafilm!![position].image)
                 .into(holder.itemView.gambarFilm)
-        holder.itemView.judulFilm.text = listdatafilm[position].name
-        holder.itemView.tanggalFilm.text = listdatafilm[position].date
-        holder.itemView.sutradara.text = listdatafilm[position].director
+        holder.itemView.judulFilm.text = listdatafilm!![position].name
+        holder.itemView.tanggalFilm.text = listdatafilm!![position].date
+        holder.itemView.sutradara.text = listdatafilm!![position].director
         holder.itemView.cardfilm.setOnClickListener {
-            onclik(listdatafilm[position])
+            onclik(listdatafilm!![position])
         }
     }
 
     override fun getItemCount(): Int {
-        return listdatafilm.size
+        if (listdatafilm == null){
+            return  0
+        }else{
+            return  listdatafilm!!.size
+        }
     }
 }
